@@ -13,14 +13,19 @@ int main() {
         scanf("%i", &arr[i]);
     }
 
-    for (int i = 0; i < n-1; i++) {
-        for (int j = n-1; j > i; j--) {
-            if (arr[j-1] > arr[j]) {
-                int tmp = arr[j-1];
-                arr[j-1] = arr[j];
-                arr[j] = tmp;
+    int j = 1;
+    bool next = true;
+    while (next) {
+        next = false;
+        for (int i = 0; i < n - j; i++) {
+            if (arr[i] > arr[i+1]) {
+                int tmp = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+1] = tmp;
+                next = true;
             }
         }
+        j++;
     }
     printf("Sorted array:\n");
     for (int i = 0; i < n; i++) {
