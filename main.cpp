@@ -14,10 +14,10 @@ int main() {
     }
 
     for (int i = 0; i < n-1; i++) {
-        for (int j = i+1; j < n; j++) {
-            if (arr[i] > arr[j]) {
-                int tmp = arr[i];
-                arr[i] = arr[j];
+        for (int j = n-1; j > i; j--) {
+            if (arr[j-1] > arr[j]) {
+                int tmp = arr[j-1];
+                arr[j-1] = arr[j];
                 arr[j] = tmp;
             }
         }
